@@ -5,8 +5,8 @@ global:
 
 scrape_configs:
   - job_name: 'prometheus'
-    static_configs:
-      - targets: ['localhost:9090']
+    static_configs:  #by default prometheus monitors it self. You could also install node exporter in prometheus then use localhost:9100
+      - targets: ['localhost:9090'] #add ( ,private IP of target-1:9100, privateIp of target-2:9100)
   - job_name: 'node'
     ec2_sd_configs:
       - region: us-east-1
